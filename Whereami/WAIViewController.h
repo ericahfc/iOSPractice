@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
+#import "BNRMapPoint.h"
 
-@interface WAIViewController : UIViewController
+@interface WAIViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UITextFieldDelegate>
+{
+    CLLocationManager *locationManager;
+    IBOutlet MKMapView *worldView;
+    IBOutlet UIActivityIndicatorView *activityIndicator;
+    IBOutlet UITextField *locationTitleField;
+    
+}
+-(void)findLocation;
+-(void)foundLocation:(CLLocation*)loc;
 
 @end
